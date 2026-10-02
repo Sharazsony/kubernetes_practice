@@ -1,0 +1,37 @@
+# =============================================================================
+# PERSISTENTVOLUMECLAIM — redis-pvc
+# =============================================================================
+# Provides durable storage for Redis so data survives pod restarts.
+# Used in Task 9 to demonstrate the difference between emptyDir and PVC.
+#
+# To switch Redis from emptyDir to PVC:
+#   1. Apply this file:
+#        kubectl apply -f manifests/base/redis-pvc.yaml
+#   2. Edit redis-deployment.yaml volumes section:
+#        volumes:
+#        - name: redis-data
+#            persistentVolumeClaim:
+#              claimName: redis-pvc
+#   3. Re-apply the deployment:
+#        kubectl apply -f manifests/base/redis-deployment.yaml
+#
+# AccessMode ReadWriteOnce = mounted by one node at a time (sufficient for Redis).
+#
+# Apply:  kubectl apply -f manifests/base/redis-pvc.yaml
+# Verify: kubectl get pvc redis-pvc -n assign1
+# =============================================================================
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-pvc
+  namespace: assign1
+  labels:
+    app: redis
+    project: kubernetes-assignment-1
+spec:
+  accessModes:
+  - ReadWriteOnce     # single node read/write — appropriate for Redis
+  resources:
+    requests:
+      storage: 200Mi  # 200 MiB — sufficient for assignment-scale cache data

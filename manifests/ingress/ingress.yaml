@@ -1,0 +1,76 @@
+# =============================================================================
+# INGRESS — app-ingress
+# =============================================================================
+# Exposes the application to external traffic via the Nginx Ingress Controller.
+# Requires KIND cluster with port mapping (kind-config.yaml) and:
+#   /etc/hosts entry: 127.0.0.1 app.local
+#
+# Routing rules:
+#   http://app.local/api/*    → backend Service (podinfo) on port 9898 (DIRECT)
+#   http://app.local/whoami/* → whoami Service on port 80              (DIRECT)
+#   http://app.local/*        → nginx Service on port 80               (proxy)
+#
+# rewrite-target: /$2 explanation:
+#   Path pattern /api(/|$)(.*) captures two groups:
+#     $1 = "/" or ""  (the separator)
+#     $2 = remainder  (e.g. "version" from /api/version)
+#   rewrite /$2 strips the /api prefix before forwarding.
+#   Example: GET /api/version → forwarded as GET /version to backend:9898
+#
+# pathType: ImplementationSpecific is required when using capture groups.
+#
+# Prerequisites:
+#   kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/
+#     main/deploy/static/provider/kind/deploy.yaml
+#
+# Apply:  kubectl apply -f manifests/ingress/ingress.yaml
+# Verify: kubectl get ingress -n assign1
+# Test:   curl http://app.local/api/version
+# =============================================================================
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  namespace: assign1
+  labels:
+    project: kubernetes-assignment-1
+  annotations:
+    # Rewrite the path before forwarding to the backend Service.
+    # $2 captures everything after the route prefix.
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx   # targets the Nginx Ingress Controller
+
+  rules:
+  - host: app.local         # add "127.0.0.1 app.local" to /etc/hosts
+    http:
+      paths:
+
+      # ── /api/* → podinfo backend (DIRECT — bypasses Nginx proxy) ───────────
+      # Task 6: second Ingress path routes directly to backend, not via nginx.
+      - path: /api(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: backend
+            port:
+              number: 9898  # podinfo listens on 9898 (not 80)
+
+      # ── /whoami/* → whoami service (DIRECT — bypasses Nginx proxy) ─────────
+      - path: /whoami(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: whoami
+            port:
+              number: 80
+
+      # ── /* → Nginx (static page + proxy fallback) ───────────────────────────
+      - path: /()(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: nginx
+            port:
+              number: 80

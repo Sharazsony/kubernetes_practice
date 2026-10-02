@@ -1,0 +1,32 @@
+# =============================================================================
+# SERVICE — backend
+# =============================================================================
+# Exposes the podinfo Deployment inside the cluster.
+# DNS name "backend" resolves to this Service's ClusterIP.
+#
+# Used by:
+#   - Nginx config: proxy_pass http://backend:9898/
+#   - Ingress:      routes /api/ directly to this Service
+#   - Jobs/CronJobs: curl http://backend:9898/version
+#
+# Apply:  kubectl apply -f manifests/base/backend-service.yaml
+# Verify: kubectl get svc backend -n assign1
+# =============================================================================
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: assign1
+  labels:
+    app: backend
+    project: kubernetes-assignment-1
+spec:
+  type: ClusterIP
+  selector:
+    app: backend   # selects pods with label app=backend
+  ports:
+  - name: http
+    port: 9898        # port the Service exposes
+    targetPort: 9898  # port on the podinfo container
+    protocol: TCP

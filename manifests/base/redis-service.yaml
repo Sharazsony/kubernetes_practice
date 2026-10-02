@@ -1,0 +1,31 @@
+# =============================================================================
+# SERVICE — redis
+# =============================================================================
+# Exposes the Redis pod inside the cluster under the DNS name "redis".
+# podinfo resolves "redis" via Kubernetes DNS:
+#   tcp://redis:6379 → redis.assign1.svc.cluster.local:6379
+#
+# IMPORTANT: The Service name MUST be "redis" to match the ConfigMap value:
+#   PODINFO_CACHE_SERVER: "tcp://redis:6379"
+#
+# Apply:  kubectl apply -f manifests/base/redis-service.yaml
+# Verify: kubectl get svc redis -n assign1
+# =============================================================================
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis   # must match PODINFO_CACHE_SERVER hostname
+  namespace: assign1
+  labels:
+    app: redis
+    project: kubernetes-assignment-1
+spec:
+  type: ClusterIP   # internal only — Redis should never be exposed externally
+  selector:
+    app: redis      # routes traffic to pods with label app=redis
+  ports:
+  - name: redis
+    port: 6379        # port the Service listens on
+    targetPort: 6379  # port on the Redis container
+    protocol: TCP

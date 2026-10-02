@@ -1,0 +1,135 @@
+# =============================================================================
+# DEPLOYMENT — nginx (reverse proxy + static file server)
+# =============================================================================
+# Acts as a reverse proxy in front of the backend and whoami services.
+# Also serves a static HTML page at the root path.
+#
+# Volume mounts:
+#   nginx-config    → /etc/nginx/conf.d/default.conf  (routing rules)
+#   static-content  → /usr/share/nginx/html           (static HTML)
+#   secret-volume   → /etc/secret (read-only)         (demonstrates secret as file)
+#
+# Secret injection methods (both demonstrated):
+#   1. ENV VAR  → API_KEY environment variable (valueFrom.secretKeyRef)
+#   2. FILE     → /etc/secret/api-key mounted from the same Secret
+#
+# subPath explanation:
+#   Without subPath: the entire /etc/nginx/conf.d/ folder is replaced,
+#   removing nginx's built-in files (mime.types etc.) → nginx crashes.
+#   With subPath: only default.conf is mounted; other files are preserved.
+#
+# Apply:  kubectl apply -f manifests/base/nginx.yaml
+# Verify: kubectl get pods -l app=nginx -n assign1
+# =============================================================================
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: assign1
+  labels:
+    app: nginx
+    project: kubernetes-assignment-1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.27-alpine
+        ports:
+        - containerPort: 80
+          name: http
+
+        # ── Secret as environment variable ───────────────────────────────────
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: api-key
+
+        # ── Volume mounts ────────────────────────────────────────────────────
+        volumeMounts:
+        # Mount only the nginx config file (subPath prevents replacing the
+        # entire conf.d/ directory which would break nginx)
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: nginx.conf       # key name inside the ConfigMap
+
+        # Mount static HTML directory
+        - name: static-content
+          mountPath: /usr/share/nginx/html
+
+        # Mount secret as read-only files under /etc/secret/
+        # Files: /etc/secret/api-key, /etc/secret/db-password
+        - name: secret-volume
+          mountPath: /etc/secret
+          readOnly: true
+
+        # ── Resource management ──────────────────────────────────────────────
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+
+        # ── Readiness probe ──────────────────────────────────────────────────
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+
+      # ── Volumes ──────────────────────────────────────────────────────────────
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config       # references configmap-nginx.yaml
+
+      - name: static-content
+        configMap:
+          name: static-content     # references configmap-static.yaml
+
+      - name: secret-volume
+        secret:
+          secretName: app-secret   # references secret.yaml
+
+---
+# =============================================================================
+# SERVICE — nginx
+# =============================================================================
+# Exposes the Nginx Deployment inside the cluster.
+# Referenced by the Ingress for the root path (/).
+#
+# Apply:  kubectl apply -f manifests/base/nginx.yaml
+# Verify: kubectl get svc nginx -n assign1
+# =============================================================================
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: assign1
+  labels:
+    app: nginx
+    project: kubernetes-assignment-1
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+    protocol: TCP

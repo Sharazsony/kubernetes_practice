@@ -1,0 +1,37 @@
+# =============================================================================
+# JOB — curl-backend-once
+# =============================================================================
+# One-off Job that sends a single HTTP request to the backend Service and exits.
+# Demonstrates that cluster-internal Services are reachable by name from any pod.
+#
+# backoffLimit: 2 → retry up to 2 times on failure before marking Job as Failed.
+# restartPolicy: Never → do not restart the container; create a new pod instead.
+#
+# Apply:  kubectl apply -f manifests/jobs/job.yaml
+# Check:  kubectl get job curl-backend-once -n assign1
+# Logs:   kubectl logs job/curl-backend-once -n assign1
+# =============================================================================
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl-backend-once
+  namespace: assign1
+  labels:
+    project: kubernetes-assignment-1
+spec:
+  backoffLimit: 2   # retry twice on failure before marking Job Failed
+  template:
+    spec:
+      restartPolicy: Never   # on failure, create new pod (not restart same pod)
+      containers:
+      - name: curl
+        image: curlimages/curl:8.7.1
+        # Calls the backend Service by DNS name — no port-forwarding needed.
+        # /version returns JSON with the podinfo version (always 200 OK).
+        command:
+        - curl
+        - -s                          # silent mode (no progress bar)
+        - -w                          # write-out format
+        - "\nHTTP Status: %{http_code}\n"
+        - http://backend:9898/version

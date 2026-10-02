@@ -1,20 +1,43 @@
+# =============================================================================
+# KIND CLUSTER CONFIG — kind-config.yaml
+# =============================================================================
+# Creates a KIND (Kubernetes IN Docker) cluster with port mappings required
+# for the Nginx Ingress Controller to be reachable from the host machine.
+#
+# Without these port mappings:
+#   KIND container runs in Docker → port 80/443 are not exposed to host →
+#   browser cannot reach http://app.local
+#
+# With port mappings:
+#   host:80  → KIND container:80  → Ingress Controller → Services → Pods
+#   host:443 → KIND container:443 → Ingress Controller (HTTPS)
+#
+# node-labels: ingress-ready=true
+#   Required by the Nginx Ingress Controller DaemonSet nodeSelector.
+#   Without this label, the Ingress Controller pod won't schedule on this node.
+#
+# Usage:
+#   kind create cluster --config kind-config.yaml
+#   kind delete cluster --name my-cluster
+# =============================================================================
+
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 name: my-cluster
 nodes:
 - role: control-plane
-  # Ingress ke liye port mapping zaroori hai
-  # HOST machine ka port → KIND container ka port
+  # Label required by Nginx Ingress Controller
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
         node-labels: "ingress-ready=true"
+  # Map host ports to container ports for Ingress access
   extraPortMappings:
-  - containerPort: 80    # KIND container ka port 80
-    hostPort: 80         # Host machine par bhi port 80
+  - containerPort: 80
+    hostPort: 80
     protocol: TCP
-  - containerPort: 443   # KIND container ka port 443
-    hostPort: 443        # Host machine par bhi port 443
+  - containerPort: 443
+    hostPort: 443
     protocol: TCP

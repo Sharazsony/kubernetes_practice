@@ -1,0 +1,54 @@
+# =============================================================================
+# CRONJOB — curl-backend-every-minute
+# =============================================================================
+# Runs a curl Job every minute to poll the backend Service.
+# Demonstrates scheduled workloads and concurrency control.
+#
+# concurrencyPolicy: Forbid
+#   If the previous Job is still running when the next schedule fires,
+#   skip the new Job rather than running two in parallel.
+#   (Use Allow to run concurrently, Replace to cancel the previous one.)
+#
+# successfulJobsHistoryLimit: 2
+#   Retain only the last 2 completed Jobs (and their pods/logs).
+#   Older Jobs are automatically deleted.
+#
+# failedJobsHistoryLimit: 1
+#   Retain only the last 1 failed Job for debugging.
+#
+# Apply:    kubectl apply -f manifests/jobs/cronjob.yaml
+# Check:    kubectl get cronjob curl-backend-every-minute -n assign1
+# Watch:    kubectl get jobs -n assign1 -w
+# Logs:     kubectl logs job/<job-name> -n assign1
+# Disable:  kubectl patch cronjob curl-backend-every-minute -n assign1 \
+#             -p '{"spec":{"suspend":true}}'
+# =============================================================================
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: curl-backend-every-minute
+  namespace: assign1
+  labels:
+    project: kubernetes-assignment-1
+spec:
+  schedule: "* * * * *"             # every minute — cron format: min hr dom mon dow
+  concurrencyPolicy: Forbid         # skip new run if previous is still running
+  successfulJobsHistoryLimit: 2     # keep last 2 successful Jobs
+  failedJobsHistoryLimit: 1         # keep last 1 failed Job
+
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: curl
+            image: curlimages/curl:8.7.1
+            command:
+            - curl
+            - -s
+            - -w
+            - "\nHTTP Status: %{http_code}\n"
+            - http://backend:9898/version

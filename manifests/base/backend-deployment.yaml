@@ -1,0 +1,135 @@
+# =============================================================================
+# DEPLOYMENT — backend (podinfo)
+# =============================================================================
+# Runs stefanprodan/podinfo — a feature-rich demo API used to demonstrate:
+#   - ConfigMap injection via environment variables
+#   - Redis cache integration (PODINFO_CACHE_SERVER)
+#   - Health probes (startup, liveness, readiness)
+#   - Rolling updates and rollback
+#   - Fault injection endpoints for debug drills
+#
+# Key podinfo endpoints:
+#   GET  /         → Web UI (color and message from ConfigMap)
+#   GET  /version  → JSON version info
+#   GET  /healthz  → Liveness check — always 200 unless panicked
+#   GET  /readyz   → Readiness check — can be toggled via /readyz/disable
+#   GET  /env      → All environment variables
+#   GET  /metrics  → Prometheus metrics
+#   POST /cache/{key}    → Store value in Redis
+#   GET  /cache/{key}    → Retrieve value from Redis
+#   POST /readyz/disable → Simulate readiness failure (debug drill)
+#   POST /readyz/enable  → Re-enable readiness
+#   GET  /status/{code}  → Return any HTTP status code
+#   GET  /delay/{sec}    → Delay response by N seconds
+#   GET  /panic          → Crash the container (triggers restart)
+#
+# Apply:  kubectl apply -f manifests/base/backend-deployment.yaml
+# Verify: kubectl get pods -l app=backend -n assign1
+# =============================================================================
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: assign1
+  labels:
+    app: backend
+    project: kubernetes-assignment-1
+spec:
+  replicas: 2
+
+  # ── Rollout history ─────────────────────────────────────────────────────────
+  # Keep only 3 previous ReplicaSets (like git log --oneline -3).
+  # Older revisions are automatically pruned.
+  revisionHistoryLimit: 3
+
+  selector:
+    matchLabels:
+      app: backend
+
+  # ── Rolling update strategy ──────────────────────────────────────────────────
+  # maxUnavailable: 0  → never take a pod offline before a new one is ready
+  # maxSurge: 1        → allow one extra pod above desired count during rollout
+  # Combined effect: zero-downtime deployments
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: podinfo
+        image: ghcr.io/stefanprodan/podinfo:6.7.1
+        ports:
+        - containerPort: 9898
+          name: http
+
+        # ── Environment variables from ConfigMap ─────────────────────────────
+        # Each key is explicitly mapped — avoids injecting unwanted variables.
+        env:
+        - name: PODINFO_UI_MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: podinfo-config
+              key: PODINFO_UI_MESSAGE
+        - name: PODINFO_UI_COLOR
+          valueFrom:
+            configMapKeyRef:
+              name: podinfo-config
+              key: PODINFO_UI_COLOR
+        - name: PODINFO_CACHE_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: podinfo-config
+              key: PODINFO_CACHE_SERVER
+
+        # ── Resource management ──────────────────────────────────────────────
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+
+        # ── Startup probe ────────────────────────────────────────────────────
+        # Gives slow-starting containers time to initialise before liveness
+        # and readiness probes kick in.
+        # Max wait = failureThreshold × periodSeconds = 30 × 5 = 150s
+        startupProbe:
+          httpGet:
+            path: /healthz
+            port: 9898
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 30
+
+        # ── Liveness probe ───────────────────────────────────────────────────
+        # Checks if the process is alive. Failure → container is restarted.
+        # Uses /healthz which stays healthy unless the process panics.
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 9898
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+
+        # ── Readiness probe ──────────────────────────────────────────────────
+        # Checks if the pod is ready to receive traffic.
+        # Failure → pod removed from Service endpoints (no traffic, not killed).
+        # /readyz can be disabled via: POST /readyz/disable  (debug drill Task 11)
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 9898
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
