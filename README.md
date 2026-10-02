@@ -1,6 +1,10 @@
 End-Point:
 http://app.local/ — Nginx Static Page
+
+
 http://app.local/whoami/ — Whoami Service
+
+
 http://app.local/api/ - backend (PodInfo)
 
 # Assigment-1_kubernetes_practice:
