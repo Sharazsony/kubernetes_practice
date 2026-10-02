@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl-be-once
+  namespace: assign1
+spec:
+  template:
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl:latest
+        command: ["curl", "-s", "http://backend:9898/api/info"]
+      restartPolicy: Never
+  backoffLimit: 2

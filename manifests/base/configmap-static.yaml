@@ -1,0 +1,45 @@
+# =============================================================================
+# CONFIGMAP — static-content
+# =============================================================================
+# Provides the static HTML page served by Nginx at the root path ("/").
+# Mounted as a volume at /usr/share/nginx/html inside the Nginx container.
+#
+# The API_KEY placeholder demonstrates that secrets should be injected
+# via environment variables — never hardcoded into HTML or config files.
+#
+# Apply:  kubectl apply -f manifests/base/configmap-static.yaml
+# Verify: curl http://app.local/
+# =============================================================================
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: static-content
+  namespace: assign1
+  labels:
+    app: nginx
+    project: kubernetes-assignment-1
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Kubernetes Assignment 1</title>
+      <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; }
+        h1   { color: #34577c; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
+      </style>
+    </head>
+    <body>
+      <h1>Hello from Nginx — Assignment 1</h1>
+      <p>Available routes:</p>
+      <ul>
+        <li><code>/</code> — this static page (Nginx)</li>
+        <li><code>/api/</code> — podinfo backend (proxied by Nginx)</li>
+        <li><code>/whoami/</code> — whoami service (direct via Ingress)</li>
+      </ul>
+      <p><small>API Key is injected as an environment variable — not shown here.</small></p>
+    </body>
+    </html>

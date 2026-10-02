@@ -1,0 +1,36 @@
+# =============================================================================
+# CONFIGMAP — podinfo-config
+# =============================================================================
+# Stores non-sensitive configuration for the backend (podinfo) Deployment.
+# Values are injected as environment variables via envFrom or valueFrom.
+#
+# Keys:
+#   PODINFO_UI_MESSAGE  → displayed on the podinfo web UI
+#   PODINFO_UI_COLOR    → hex background color of the podinfo UI
+#   PODINFO_CACHE_SERVER → Redis connection string used by podinfo
+#                          Format: tcp://<service-name>:<port>
+#                          "redis" must match the Redis Service name exactly
+#
+# NOTE: immutable: true is set intentionally.
+#   - Prevents accidental edits to running configuration.
+#   - Kubernetes stops watching this ConfigMap → better API server performance.
+#   - To change values: delete this ConfigMap, update the file, re-apply,
+#     then rollout restart the backend Deployment.
+#
+# Apply:  kubectl apply -f manifests/base/configmap-backend.yaml
+# Verify: kubectl get configmap podinfo-config -n assign1 -o yaml
+# =============================================================================
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: podinfo-config
+  namespace: assign1
+  labels:
+    app: backend
+    project: kubernetes-assignment-1
+immutable: true   # prevents any edits after creation — delete & recreate to change
+data:
+  PODINFO_UI_MESSAGE: "Hello from ConfigMap — Assignment 1"
+  PODINFO_UI_COLOR: "#34577c"
+  PODINFO_CACHE_SERVER: "tcp://redis:6379"  # must match Redis Service name

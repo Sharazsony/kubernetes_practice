@@ -5,7 +5,9 @@ metadata:
   namespace: assign1
   labels:
     app: backend
+#__ changes is applied immutable true__
+ #| now file is immutable, cannot be changed after creation
 data:
-  PODINFO_UI_MESSAGE: "Hello from ConfigMap - Assignment 1"
+  PODINFO_UI_MESSAGE: "Updated massage - Assignment 1"
   PODINFO_UI_COLOR: "#34577c"
-  PODINFO_CACHE_SERVER: "tcp://redis:6379"    # ← Cache address yahan
+  PODINFO_CACHE_SERVER: "tcp://redis:6379"

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami       # Resource ki asli pehchaan (identity)
+  namespace: assign1 # Resource ko group/category dene ke liye
+  labels:
+    app: whoami
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: whoami #Ye Deployment ko batata hai Tum un pods ko manage karo jinke paas app: whoami label ho
+  template:
+    metadata:
+      labels:
+        app: whoami #Ye naye banne wale pods par laga hua label hai |  Ye label selector se bilkul match karna zaroori hai
+    spec:
+      containers:
+      - name: whoami #Ye container ka naam hai
+        image: containous/whoami
+        ports:
+        - containerPort: 80
+          name: http
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "50m"
+          limits:
+            memory: "64Mi"
+            cpu: "100m"

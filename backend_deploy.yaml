@@ -8,6 +8,12 @@ metadata:
     purpose: api
 spec:
   replicas: 2
+  revisionHistoryLimit: 3        # ← sirf 3 purane versions rakho
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1                # ← 1 extra pod allowed
+      maxUnavailable: 0          # ← 0 pods unavailable (zero downtime)
   selector:
     matchLabels:
       app: backend

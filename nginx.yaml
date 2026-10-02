@@ -1,0 +1,147 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: assign1
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.27-alpine
+        ports:
+        - containerPort: 80
+          name: http
+        # ─── Secret as ENV VAR ───
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: api-key
+        # ─── Config mounts ───
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: nginx.conf
+        - name: static-content
+          mountPath: /usr/share/nginx/html
+        # ─── Secret as MOUNTED FILE ───
+        - name: secret-volume
+          mountPath: /etc/secret
+          readOnly: true
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
+      - name: static-content
+        configMap:
+          name: static-content
+      - name: secret-volume
+        secret:
+          secretName: app-secret
+
+  # Mount Path Decision ka Asal Logic
+
+  # Mount path aap khud decide karte ho — Kubernetes koi automatically path
+  # decide nahi karta. Lekin yeh decision random nahi hota, iska ek logic hota
+  # hai:
+
+  # │ "Container ke andar woh program kahan se file padhta hai — wahi mount
+  # path hona chahiye"
+  #   nginx ka DEFAULT behavior hai ke woh
+  # /etc/nginx/conf.d/default.conf se routing rules padhe.
+  # Isliye → agar aap chahte ho ke aapki custom config load ho,
+  # toh aapko USI PATH par mount karna hoga jahan nginx padhta hai.
+
+#    Ek Line mein Yaad Rakhne ka Rule
+  
+#   Agar koi program (nginx) khud kisi fixed path se file padhta hai
+#   → wahi path use karo (change nahi kar sakte)
+  
+#   Agar aap khud program ko batate ho path kahan se padho
+#   → aap koi bhi path de sako, bas dono jagah same rakho
+  
+#   Agar sirf app code access karega
+#   → convention follow karo (/etc/, /var/, /app/ etc.)
+  
+#   ──────────────────────────────────────────────────────────────────────────
+  
+#   Ek Aur Important Cheez — subPath ka Role
+  
+#   mountPath: /etc/nginx/conf.d/default.conf
+#   subPath: nginx.conf
+  
+#   Bina subPath ke:
+  
+#   /etc/nginx/conf.d/  ← poora FOLDER mount hoga
+#       └── nginx.conf  ← sirf yeh file hogi, baaki sab delete
+  
+#   subPath ke saath:
+  
+#   /etc/nginx/conf.d/default.conf ← sirf YEH EK FILE mount hogi
+#   baaki files /etc/nginx/conf.d/ mein safe rahengi
+  
+#   Yeh isliye important hai kyunki nginx conf.d/ folder mein aur bhi files
+#   rakh sakta hai — aap unhe disturb nahi karna chahte.
+ 
+#  Step 2 — nginx.yaml mein volume define karo (ConfigMap se link)
+  
+#   # nginx.yaml — spec.volumes section mein
+#   volumes:
+#   - name: nginx-config          # ← aapna naam diya volume ko
+#     configMap:
+#       name: nginx-config        # ← ConfigMap ka naam match karna zaroori hai!
+  
+#   Yahan connection banta hai: configMap.name: nginx-config → Kubernetes jata hai aur nginx-config naam ka ConfigMap dhundta hai
+#   assign1 namespace mein.
+  
+#   Step 3 — volumeMount se container ke andar file inject hoti hai
+  
+#   # nginx.yaml — containers section mein
+#   volumeMounts:
+#   - name: nginx-config                              # ← Step 2 ka volume naam
+#     mountPath: /etc/nginx/conf.d/default.conf       # ← container mein kahan rakhni hai
+#     subPath: nginx.conf                             # ← ConfigMap ki kaunsi KEY use karni hai
+  # 🧩 Poora Flow — Ek Nazar Mein
+  
+  # nginx-configmap.yaml           nginx.yaml (Deployment)
+  # ─────────────────────          ───────────────────────────────────────
+  # kind: ConfigMap                volumes:
+  # name: nginx-config      ──────►  - name: my-vol
+  #                                    configMap:
+  # data:                                name: nginx-config  ← naam match!
+  #   nginx.conf: |          
+  #     server { ... }             volumeMounts:
+  #     ↑                            - name: my-vol          ← volume naam match!
+  #     KEY naam                       mountPath: /etc/nginx/conf.d/default.conf
+  #                         ┌──────    subPath: nginx.conf   ← key naam match!
+  #                         │
+  #                         ▼
+  #               Container ke andar:
+  #               /etc/nginx/conf.d/default.conf
+  #               (contents = aapki server { ... } config)
+                
+  #               Nginx yahan se padhta hai → proxy rules apply → traffic route hoti hai

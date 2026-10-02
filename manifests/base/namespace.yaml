@@ -1,0 +1,17 @@
+# =============================================================================
+# NAMESPACE — assign1
+# =============================================================================
+# Isolates all assignment resources from the default namespace.
+# All subsequent manifests target this namespace.
+#
+# Apply:  kubectl apply -f manifests/base/namespace.yaml
+# Verify: kubectl get namespace assign1
+# =============================================================================
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: assign1
+  labels:
+    project: kubernetes-assignment-1
+    environment: dev

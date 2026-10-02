@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: curl-be-every-minute
+  namespace: assign1
+spec:
+  schedule: "* * * * *"              # har minute
+  concurrencyPolicy: Forbid          # ek waqt mein ek
+  successfulJobsHistoryLimit: 2      # 2 successful rakho
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: curl
+            image: curlimages/curl:latest
+            command: ["curl", "-s", "http://backend:9898/api/info"]
+          restartPolicy: Never
