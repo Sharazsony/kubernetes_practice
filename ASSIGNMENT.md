@@ -399,7 +399,18 @@ kubectl debug -it $POD \
 wget -qO- http://localhost:9898/version   # verify app responds
 nslookup redis                            # test Redis DNS resolution
 nslookup backend                          # test backend DNS
-exit
+exitharaz-sony@sharazlab:~/3_assigment_kubernetes$ kubectl debug -it $POD \
+  --image=busybox:1.36 \
+  --target=podinfo \
+  -n assign1
+Targeting container "podinfo". If you don't see processes from this container it may be because the container runtime doesn't support this feature.
+Defaulting debug container name to debugger-c5twp.
+All commands and output from this session will be recorded in container logs, including credentials and sensitive information passed through the command prompt.
+If you don't see a command prompt, try pressing enter.
+/ # 
+/ # 
+/ # exit
+Session ended, the ephemeral container will not be restarted but may be reattached using 'kubectl attach backend-5998bb6fbf-6ph9h -c debugger-c5twp -n assign1 -i -t' if it is still running
 ```
 
 #### Drill 4: No Failed Requests Under Pod Deletion

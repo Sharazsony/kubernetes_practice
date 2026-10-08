@@ -1,0 +1,210 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      local.path.provisioner/selected-node: my-cluster-control-plane
+      pv.kubernetes.io/provisioned-by: rancher.io/local-path
+    creationTimestamp: "2026-10-05T07:28:08Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-11eef0ed-6ae4-4d32-b5ce-a154a1fad162
+    resourceVersion: "188753"
+    uid: 7e489745-1084-470c-83ac-f48d46d62e9d
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 1Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: data-postgres-0
+      namespace: assign2
+      resourceVersion: "188732"
+      uid: 11eef0ed-6ae4-4d32-b5ce-a154a1fad162
+    hostPath:
+      path: /var/local-path-provisioner/pvc-11eef0ed-6ae4-4d32-b5ce-a154a1fad162_assign2_data-postgres-0
+      type: DirectoryOrCreate
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - my-cluster-control-plane
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: standard
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2026-10-05T07:28:08Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      local.path.provisioner/selected-node: my-cluster-control-plane
+      pv.kubernetes.io/provisioned-by: rancher.io/local-path
+    creationTimestamp: "2026-10-05T12:00:04Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-226277d6-6412-4868-8f0a-ccffcc03e881
+    resourceVersion: "221101"
+    uid: ac9a6448-09ce-4310-bcd9-a7320ddb7711
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 1Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: postgres-backup-pvc
+      namespace: assign2
+      resourceVersion: "221073"
+      uid: 226277d6-6412-4868-8f0a-ccffcc03e881
+    hostPath:
+      path: /var/local-path-provisioner/pvc-226277d6-6412-4868-8f0a-ccffcc03e881_assign2_postgres-backup-pvc
+      type: DirectoryOrCreate
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - my-cluster-control-plane
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: standard
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2026-10-05T12:00:04Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      local.path.provisioner/selected-node: my-cluster-control-plane
+      pv.kubernetes.io/provisioned-by: rancher.io/local-path
+    creationTimestamp: "2026-10-02T10:26:06Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-70457ed1-b69c-42c4-84e2-28adcc6104d2
+    resourceVersion: "27321"
+    uid: 74894a86-899f-4120-adc6-0dfda17ab57e
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 200Mi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: redis-pvc
+      namespace: assign1
+      resourceVersion: "27301"
+      uid: 70457ed1-b69c-42c4-84e2-28adcc6104d2
+    hostPath:
+      path: /var/local-path-provisioner/pvc-70457ed1-b69c-42c4-84e2-28adcc6104d2_assign1_redis-pvc
+      type: DirectoryOrCreate
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - my-cluster-control-plane
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: standard
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2026-10-02T10:26:06Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      local.path.provisioner/selected-node: my-cluster-control-plane
+      pv.kubernetes.io/provisioned-by: rancher.io/local-path
+    creationTimestamp: "2026-10-06T10:37:51Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-89577d0b-28b4-44fb-981e-87aab10788ba
+    resourceVersion: "291800"
+    uid: 685c8ff7-b8f1-45cd-be65-36759c248610
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 1Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: data-redis-cart-0
+      namespace: boutique
+      resourceVersion: "291781"
+      uid: 89577d0b-28b4-44fb-981e-87aab10788ba
+    hostPath:
+      path: /var/local-path-provisioner/pvc-89577d0b-28b4-44fb-981e-87aab10788ba_boutique_data-redis-cart-0
+      type: DirectoryOrCreate
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - my-cluster-control-plane
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: standard
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2026-10-06T10:37:51Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      local.path.provisioner/selected-node: my-cluster-control-plane
+      pv.kubernetes.io/provisioned-by: rancher.io/local-path
+    creationTimestamp: "2026-10-07T12:20:01Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-ad70c8ae-1adf-43d8-97ee-7abf5f6bba4f
+    resourceVersion: "383279"
+    uid: 387abe30-749f-4a96-99cc-20db2a2eb201
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 1Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: redis-backup
+      namespace: boutique
+      resourceVersion: "383249"
+      uid: ad70c8ae-1adf-43d8-97ee-7abf5f6bba4f
+    hostPath:
+      path: /var/local-path-provisioner/pvc-ad70c8ae-1adf-43d8-97ee-7abf5f6bba4f_boutique_redis-backup
+      type: DirectoryOrCreate
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - my-cluster-control-plane
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: standard
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2026-10-07T12:20:01Z"
+    phase: Bound
+kind: List
+metadata:
+  resourceVersion: ""

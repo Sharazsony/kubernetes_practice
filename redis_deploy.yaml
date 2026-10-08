@@ -44,10 +44,13 @@ spec:
               - ping 
           initialDelaySeconds: 5 
           periodSeconds: 5
+      # volumes:
+      # - name: redis-data
+      #   emptyDir: {}
       volumes:
       - name: redis-data
-        emptyDir: {}
-
+        persistentVolumeClaim:
+          claimName: redis-pvc
 
 
 

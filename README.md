@@ -273,3 +273,19 @@ backend	Service ka naam	Aap ki service ka naam
 assign1	Namespace	Aap ka namespace
 svc	Service	Ye service hai (pod nahi)
 cluster.local	Cluster domain	Kubernetes ka default domain
+
+
+Events kubectl describe ke andar bhi dikhte hain, lekin kubectl get events ek cluster-wide / namespace-wide view deta hai
+
+Event Reason	Matlab
+Scheduled	Pod kis node pe schedule hua
+Pulling	Image pull ho rahi hai
+Pulled	Image successfully pull ho gayi
+Created	Container banaya gaya
+Started	Container start ho gaya
+BackOff	Container crash ho raha hai, restart backoff mein hai
+Failed	Kuch fail hua (image pull fail, mount fail, etc.)
+Unhealthy	Readiness/Liveness probe fail ho rahi hai
+Killing	Container ko kill kiya ja raha hai
+
+Default: etcd mein, sirf 1 hour ke liye (TTL).

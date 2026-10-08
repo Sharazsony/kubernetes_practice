@@ -1,0 +1,501 @@
+LAST SEEN   TYPE      REASON                   OBJECT                                    MESSAGE
+9h          Normal    SuccessfulCreate         cronjob/curl-be-every-minute              (combined from similar events): Created job curl-be-every-minute-29856686
+9h          Normal    Created                  pod/curl-be-every-minute-29856629-pxz5d   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856629-pxz5d   Successfully pulled image "curlimages/curl:latest" in 2.907s (2.907s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856629-pxz5d   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856629         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856630-xxlcz   Successfully assigned assign1/curl-be-every-minute-29856630-xxlcz to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856630         Created pod: curl-be-every-minute-29856630-xxlcz
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856630-xxlcz   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856630-xxlcz   Successfully pulled image "curlimages/curl:latest" in 9.182s (9.182s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856630-xxlcz   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856630-xxlcz   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856630         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856631-q9lzx   Successfully assigned assign1/curl-be-every-minute-29856631-q9lzx to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856631         Created pod: curl-be-every-minute-29856631-q9lzx
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856631-q9lzx   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856631-q9lzx   Successfully pulled image "curlimages/curl:latest" in 17.683s (17.683s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856631-q9lzx   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856631-q9lzx   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856631         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856632         Created pod: curl-be-every-minute-29856632-nqvwv
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856632-nqvwv   Successfully assigned assign1/curl-be-every-minute-29856632-nqvwv to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856632-nqvwv   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856632-nqvwv   Successfully pulled image "curlimages/curl:latest" in 9.595s (9.595s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856632-nqvwv   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856632-nqvwv   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856632         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856633         Created pod: curl-be-every-minute-29856633-2cvwq
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856633-2cvwq   Successfully assigned assign1/curl-be-every-minute-29856633-2cvwq to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856633-2cvwq   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856633-2cvwq   Successfully pulled image "curlimages/curl:latest" in 3.779s (3.779s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856633-2cvwq   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856633-2cvwq   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856633         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856634-sv89h   Pulling image "curlimages/curl:latest"
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856634-sv89h   Successfully assigned assign1/curl-be-every-minute-29856634-sv89h to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856634         Created pod: curl-be-every-minute-29856634-sv89h
+9h          Normal    Created                  pod/curl-be-every-minute-29856634-sv89h   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856634-sv89h   Successfully pulled image "curlimages/curl:latest" in 3.018s (3.018s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856634-sv89h   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856634         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856635         Created pod: curl-be-every-minute-29856635-fq559
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856635-fq559   Successfully assigned assign1/curl-be-every-minute-29856635-fq559 to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856635-fq559   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856635-fq559   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856635-fq559   Successfully pulled image "curlimages/curl:latest" in 7.933s (7.933s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856635-fq559   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856635         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856636         Created pod: curl-be-every-minute-29856636-vrv9v
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856636-vrv9v   Successfully assigned assign1/curl-be-every-minute-29856636-vrv9v to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856636-vrv9v   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856636-vrv9v   Successfully pulled image "curlimages/curl:latest" in 10.697s (10.697s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856636-vrv9v   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856636-vrv9v   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856636         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856637         Created pod: curl-be-every-minute-29856637-c9scw
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856637-c9scw   Successfully assigned assign1/curl-be-every-minute-29856637-c9scw to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856637-c9scw   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856637-c9scw   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856637-c9scw   Successfully pulled image "curlimages/curl:latest" in 29.875s (29.875s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856637-c9scw   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856637         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856638-g2qvh   Successfully assigned assign1/curl-be-every-minute-29856638-g2qvh to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856638         Created pod: curl-be-every-minute-29856638-g2qvh
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856638-g2qvh   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856638-g2qvh   Started container curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856638-g2qvh   Successfully pulled image "curlimages/curl:latest" in 14.859s (14.859s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856638-g2qvh   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856638         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856639         Created pod: curl-be-every-minute-29856639-2lg7b
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856639-2lg7b   Successfully assigned assign1/curl-be-every-minute-29856639-2lg7b to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856639-2lg7b   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856639-2lg7b   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856639-2lg7b   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856639-2lg7b   Successfully pulled image "curlimages/curl:latest" in 2.618s (2.618s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856639         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856640-mfvcp   Successfully assigned assign1/curl-be-every-minute-29856640-mfvcp to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856640         Created pod: curl-be-every-minute-29856640-mfvcp
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856640-mfvcp   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856640-mfvcp   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856640-mfvcp   Successfully pulled image "curlimages/curl:latest" in 4.016s (4.016s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856640-mfvcp   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856640         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856641         Created pod: curl-be-every-minute-29856641-xs85k
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856641-xs85k   Successfully assigned assign1/curl-be-every-minute-29856641-xs85k to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856641-xs85k   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856641-xs85k   Successfully pulled image "curlimages/curl:latest" in 4.537s (4.537s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856641-xs85k   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856641-xs85k   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856641         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856642         Created pod: curl-be-every-minute-29856642-xwxks
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856642-xwxks   Successfully assigned assign1/curl-be-every-minute-29856642-xwxks to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856642-xwxks   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856642-xwxks   Successfully pulled image "curlimages/curl:latest" in 3.679s (3.679s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856642-xwxks   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856642-xwxks   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856642         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856643-7bgkr   Successfully assigned assign1/curl-be-every-minute-29856643-7bgkr to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856643         Created pod: curl-be-every-minute-29856643-7bgkr
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856643-7bgkr   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856643-7bgkr   Successfully pulled image "curlimages/curl:latest" in 4.476s (4.476s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856643-7bgkr   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856643-7bgkr   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856643         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856644         Created pod: curl-be-every-minute-29856644-hpt7g
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856644-hpt7g   Successfully assigned assign1/curl-be-every-minute-29856644-hpt7g to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856644-hpt7g   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856644-hpt7g   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856644-hpt7g   Successfully pulled image "curlimages/curl:latest" in 2.278s (2.278s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856644-hpt7g   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856644         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856645-8dczg   Successfully assigned assign1/curl-be-every-minute-29856645-8dczg to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856645         Created pod: curl-be-every-minute-29856645-8dczg
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856645-8dczg   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856645-8dczg   Successfully pulled image "curlimages/curl:latest" in 8.414s (8.414s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856645-8dczg   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856645-8dczg   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856645         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856646-fbvtn   Successfully assigned assign1/curl-be-every-minute-29856646-fbvtn to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856646         Created pod: curl-be-every-minute-29856646-fbvtn
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856646-fbvtn   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856646-fbvtn   Started container curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856646-fbvtn   Successfully pulled image "curlimages/curl:latest" in 8.208s (8.208s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856646-fbvtn   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856646         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856647         Created pod: curl-be-every-minute-29856647-b69jj
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856647-b69jj   Successfully assigned assign1/curl-be-every-minute-29856647-b69jj to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856647-b69jj   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856647-b69jj   Successfully pulled image "curlimages/curl:latest" in 4.696s (4.696s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856647-b69jj   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856647-b69jj   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856647         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856648-lfw28   Successfully assigned assign1/curl-be-every-minute-29856648-lfw28 to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856648         Created pod: curl-be-every-minute-29856648-lfw28
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856648-lfw28   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856648-lfw28   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856648-lfw28   Successfully pulled image "curlimages/curl:latest" in 14.06s (14.06s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856648-lfw28   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856648         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856649         Created pod: curl-be-every-minute-29856649-49plp
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856649-49plp   Pulling image "curlimages/curl:latest"
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856649-49plp   Successfully assigned assign1/curl-be-every-minute-29856649-49plp to my-cluster-control-plane
+9h          Normal    Created                  pod/curl-be-every-minute-29856649-49plp   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856649-49plp   Started container curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856649-49plp   Successfully pulled image "curlimages/curl:latest" in 10.429s (10.429s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856649         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856650         Created pod: curl-be-every-minute-29856650-5gr5n
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856650-5gr5n   Successfully assigned assign1/curl-be-every-minute-29856650-5gr5n to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856650-5gr5n   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856650-5gr5n   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856650-5gr5n   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856650-5gr5n   Successfully pulled image "curlimages/curl:latest" in 3.248s (3.248s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856650         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856651         Created pod: curl-be-every-minute-29856651-gxqmv
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856651-gxqmv   Successfully assigned assign1/curl-be-every-minute-29856651-gxqmv to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856651-gxqmv   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856651-gxqmv   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856651-gxqmv   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856651-gxqmv   Successfully pulled image "curlimages/curl:latest" in 3.208s (3.208s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856651         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856652-nwxgd   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856652         Created pod: curl-be-every-minute-29856652-nwxgd
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856652-nwxgd   Successfully assigned assign1/curl-be-every-minute-29856652-nwxgd to my-cluster-control-plane
+9h          Normal    Created                  pod/curl-be-every-minute-29856652-nwxgd   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856652-nwxgd   Successfully pulled image "curlimages/curl:latest" in 2.962s (2.962s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856652-nwxgd   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856652         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856653-jrbn9   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856653         Created pod: curl-be-every-minute-29856653-jrbn9
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856653-jrbn9   Successfully assigned assign1/curl-be-every-minute-29856653-jrbn9 to my-cluster-control-plane
+9h          Normal    Created                  pod/curl-be-every-minute-29856653-jrbn9   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856653-jrbn9   Successfully pulled image "curlimages/curl:latest" in 5.121s (5.121s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856653-jrbn9   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856653         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856654-6lz4p   Pulling image "curlimages/curl:latest"
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856654-6lz4p   Successfully assigned assign1/curl-be-every-minute-29856654-6lz4p to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856654         Created pod: curl-be-every-minute-29856654-6lz4p
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856654-6lz4p   Successfully pulled image "curlimages/curl:latest" in 2.483s (2.483s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856654-6lz4p   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856654-6lz4p   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856654         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856655-ht8nd   Successfully assigned assign1/curl-be-every-minute-29856655-ht8nd to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856655         Created pod: curl-be-every-minute-29856655-ht8nd
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856655-ht8nd   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856655-ht8nd   Successfully pulled image "curlimages/curl:latest" in 3.273s (3.273s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856655-ht8nd   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856655-ht8nd   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856655         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856656-d294n   Successfully assigned assign1/curl-be-every-minute-29856656-d294n to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856656         Created pod: curl-be-every-minute-29856656-d294n
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856656-d294n   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856656-d294n   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856656-d294n   Started container curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856656-d294n   Successfully pulled image "curlimages/curl:latest" in 3.095s (3.095s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856656         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856657-9klkz   Successfully assigned assign1/curl-be-every-minute-29856657-9klkz to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856657         Created pod: curl-be-every-minute-29856657-9klkz
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856657-9klkz   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856657-9klkz   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856657-9klkz   Successfully pulled image "curlimages/curl:latest" in 2.867s (2.867s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856657-9klkz   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856657         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856658-z4vv8   Pulling image "curlimages/curl:latest"
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856658-z4vv8   Successfully assigned assign1/curl-be-every-minute-29856658-z4vv8 to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856658         Created pod: curl-be-every-minute-29856658-z4vv8
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856658-z4vv8   Successfully pulled image "curlimages/curl:latest" in 4.985s (4.985s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856658-z4vv8   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856658-z4vv8   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856658         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856659-p5p7v   Successfully assigned assign1/curl-be-every-minute-29856659-p5p7v to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856659         Created pod: curl-be-every-minute-29856659-p5p7v
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856659-p5p7v   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856659-p5p7v   Successfully pulled image "curlimages/curl:latest" in 1.814s (1.814s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856659-p5p7v   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856659-p5p7v   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856659         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856660-jzdqh   Successfully assigned assign1/curl-be-every-minute-29856660-jzdqh to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856660         Created pod: curl-be-every-minute-29856660-jzdqh
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856660-jzdqh   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856660-jzdqh   Successfully pulled image "curlimages/curl:latest" in 2.492s (2.492s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856660-jzdqh   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856660-jzdqh   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856660         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856661-dn6cc   Successfully assigned assign1/curl-be-every-minute-29856661-dn6cc to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856661         Created pod: curl-be-every-minute-29856661-dn6cc
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856661-dn6cc   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856661-dn6cc   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856661-dn6cc   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856661-dn6cc   Successfully pulled image "curlimages/curl:latest" in 10.183s (10.183s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856661         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856662-glskj   Successfully assigned assign1/curl-be-every-minute-29856662-glskj to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856662         Created pod: curl-be-every-minute-29856662-glskj
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856662-glskj   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856662-glskj   Successfully pulled image "curlimages/curl:latest" in 2.315s (2.315s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856662-glskj   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856662-glskj   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856662         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856663-s9bjc   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856663         Created pod: curl-be-every-minute-29856663-s9bjc
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856663-s9bjc   Successfully assigned assign1/curl-be-every-minute-29856663-s9bjc to my-cluster-control-plane
+9h          Normal    Created                  pod/curl-be-every-minute-29856663-s9bjc   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856663-s9bjc   Successfully pulled image "curlimages/curl:latest" in 1.982s (1.982s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856663-s9bjc   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856663         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856664-xjx8m   Successfully assigned assign1/curl-be-every-minute-29856664-xjx8m to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856664         Created pod: curl-be-every-minute-29856664-xjx8m
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856664-xjx8m   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856664-xjx8m   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856664-xjx8m   Successfully pulled image "curlimages/curl:latest" in 16.947s (16.947s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856664-xjx8m   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856664         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856665         Created pod: curl-be-every-minute-29856665-svhmb
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856665-svhmb   Successfully assigned assign1/curl-be-every-minute-29856665-svhmb to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856665-svhmb   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856665-svhmb   Started container curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856665-svhmb   Successfully pulled image "curlimages/curl:latest" in 2.288s (2.288s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856665-svhmb   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856665         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856666-q2l94   Successfully assigned assign1/curl-be-every-minute-29856666-q2l94 to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856666         Created pod: curl-be-every-minute-29856666-q2l94
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856666-q2l94   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856666-q2l94   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856666-q2l94   Successfully pulled image "curlimages/curl:latest" in 2.437s (2.437s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856666-q2l94   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856666         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856667-lcwrj   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856667         Created pod: curl-be-every-minute-29856667-lcwrj
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856667-lcwrj   Successfully assigned assign1/curl-be-every-minute-29856667-lcwrj to my-cluster-control-plane
+9h          Normal    Created                  pod/curl-be-every-minute-29856667-lcwrj   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856667-lcwrj   Successfully pulled image "curlimages/curl:latest" in 1.831s (1.831s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856667-lcwrj   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856667         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856668         Created pod: curl-be-every-minute-29856668-6snwm
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856668-6snwm   Successfully assigned assign1/curl-be-every-minute-29856668-6snwm to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856668-6snwm   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856668-6snwm   Successfully pulled image "curlimages/curl:latest" in 2.036s (2.036s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856668-6snwm   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856668-6snwm   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856668         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856669         Created pod: curl-be-every-minute-29856669-gbcpp
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856669-gbcpp   Pulling image "curlimages/curl:latest"
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856669-gbcpp   Successfully assigned assign1/curl-be-every-minute-29856669-gbcpp to my-cluster-control-plane
+9h          Normal    Created                  pod/curl-be-every-minute-29856669-gbcpp   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856669-gbcpp   Successfully pulled image "curlimages/curl:latest" in 1.724s (1.724s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856669-gbcpp   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856669         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856670         Created pod: curl-be-every-minute-29856670-95fzf
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856670-95fzf   Successfully assigned assign1/curl-be-every-minute-29856670-95fzf to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856670-95fzf   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856670-95fzf   Successfully pulled image "curlimages/curl:latest" in 2.165s (2.165s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856670-95fzf   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856670-95fzf   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856670         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856671-t5fsr   Successfully assigned assign1/curl-be-every-minute-29856671-t5fsr to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856671-t5fsr   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856671         Created pod: curl-be-every-minute-29856671-t5fsr
+9h          Normal    Started                  pod/curl-be-every-minute-29856671-t5fsr   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856671-t5fsr   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856671-t5fsr   Successfully pulled image "curlimages/curl:latest" in 2.108s (2.108s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856671         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856672-m85b4   Successfully assigned assign1/curl-be-every-minute-29856672-m85b4 to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856672         Created pod: curl-be-every-minute-29856672-m85b4
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856672-m85b4   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856672-m85b4   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856672-m85b4   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856672-m85b4   Successfully pulled image "curlimages/curl:latest" in 2.492s (2.492s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856672         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856673-n8c79   Successfully assigned assign1/curl-be-every-minute-29856673-n8c79 to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856673-n8c79   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856673         Created pod: curl-be-every-minute-29856673-n8c79
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856673-n8c79   Successfully pulled image "curlimages/curl:latest" in 2.172s (2.172s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856673-n8c79   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856673-n8c79   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856673         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856674-r2c8r   Successfully assigned assign1/curl-be-every-minute-29856674-r2c8r to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856674         Created pod: curl-be-every-minute-29856674-r2c8r
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856674-r2c8r   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856674-r2c8r   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856674-r2c8r   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856674-r2c8r   Successfully pulled image "curlimages/curl:latest" in 2.227s (2.227s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856674         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856675         Created pod: curl-be-every-minute-29856675-tddw7
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856675-tddw7   Successfully assigned assign1/curl-be-every-minute-29856675-tddw7 to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856675-tddw7   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856675-tddw7   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856675-tddw7   Successfully pulled image "curlimages/curl:latest" in 2.313s (2.313s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856675-tddw7   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856675         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856676         Created pod: curl-be-every-minute-29856676-cflxh
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856676-cflxh   Successfully assigned assign1/curl-be-every-minute-29856676-cflxh to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856676-cflxh   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856676-cflxh   Started container curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856676-cflxh   Successfully pulled image "curlimages/curl:latest" in 2.503s (2.503s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856676-cflxh   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856676         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856677         Created pod: curl-be-every-minute-29856677-pqfbz
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856677-pqfbz   Successfully assigned assign1/curl-be-every-minute-29856677-pqfbz to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856677-pqfbz   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856677-pqfbz   Successfully pulled image "curlimages/curl:latest" in 2.388s (2.388s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856677-pqfbz   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856677-pqfbz   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856677         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856678-wj2dj   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856678         Created pod: curl-be-every-minute-29856678-wj2dj
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856678-wj2dj   Successfully assigned assign1/curl-be-every-minute-29856678-wj2dj to my-cluster-control-plane
+9h          Normal    Created                  pod/curl-be-every-minute-29856678-wj2dj   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856678-wj2dj   Successfully pulled image "curlimages/curl:latest" in 2.644s (2.644s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856678-wj2dj   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856678         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856679         Created pod: curl-be-every-minute-29856679-89vjh
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856679-89vjh   Successfully assigned assign1/curl-be-every-minute-29856679-89vjh to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856679-89vjh   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856679-89vjh   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856679-89vjh   Successfully pulled image "curlimages/curl:latest" in 2.913s (2.913s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856679-89vjh   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856679         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856680         Created pod: curl-be-every-minute-29856680-v799n
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856680-v799n   Successfully assigned assign1/curl-be-every-minute-29856680-v799n to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856680-v799n   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856680-v799n   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856680-v799n   Successfully pulled image "curlimages/curl:latest" in 2.673s (2.673s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856680-v799n   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856680         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856681-w7zw5   Successfully assigned assign1/curl-be-every-minute-29856681-w7zw5 to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856681         Created pod: curl-be-every-minute-29856681-w7zw5
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856681-w7zw5   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856681-w7zw5   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856681-w7zw5   Successfully pulled image "curlimages/curl:latest" in 2.628s (2.628s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856681-w7zw5   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856681         Job completed
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856682-2757r   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856682         Created pod: curl-be-every-minute-29856682-2757r
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856682-2757r   Successfully assigned assign1/curl-be-every-minute-29856682-2757r to my-cluster-control-plane
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856682-2757r   Successfully pulled image "curlimages/curl:latest" in 1.881s (1.881s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856682-2757r   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856682-2757r   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856682         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856683         Created pod: curl-be-every-minute-29856683-nst57
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856683-nst57   Successfully assigned assign1/curl-be-every-minute-29856683-nst57 to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856683-nst57   Pulling image "curlimages/curl:latest"
+9h          Normal    Started                  pod/curl-be-every-minute-29856683-nst57   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856683-nst57   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856683-nst57   Successfully pulled image "curlimages/curl:latest" in 2.351s (2.351s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856683         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856684-s4xj6   Successfully assigned assign1/curl-be-every-minute-29856684-s4xj6 to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856684-s4xj6   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856684         Created pod: curl-be-every-minute-29856684-s4xj6
+9h          Normal    Started                  pod/curl-be-every-minute-29856684-s4xj6   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856684-s4xj6   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856684-s4xj6   Successfully pulled image "curlimages/curl:latest" in 2.302s (2.302s including waiting). Image size: 10680594 bytes.
+9h          Normal    Completed                job/curl-be-every-minute-29856684         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856685-trhnq   Successfully assigned assign1/curl-be-every-minute-29856685-trhnq to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856685-trhnq   Pulling image "curlimages/curl:latest"
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856685         Created pod: curl-be-every-minute-29856685-trhnq
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856685-trhnq   Successfully pulled image "curlimages/curl:latest" in 2.248s (2.248s including waiting). Image size: 10680594 bytes.
+9h          Normal    Created                  pod/curl-be-every-minute-29856685-trhnq   Created container: curl
+9h          Normal    Started                  pod/curl-be-every-minute-29856685-trhnq   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856685         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856686         Created pod: curl-be-every-minute-29856686-lvxcx
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856686-lvxcx   Successfully assigned assign1/curl-be-every-minute-29856686-lvxcx to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856686-lvxcx   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856686-lvxcx   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856686-lvxcx   Successfully pulled image "curlimages/curl:latest" in 1.733s (1.733s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856686-lvxcx   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856686         Job completed
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856687         Created pod: curl-be-every-minute-29856687-nlzqs
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856687-nlzqs   Successfully assigned assign1/curl-be-every-minute-29856687-nlzqs to my-cluster-control-plane
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856687-nlzqs   Pulling image "curlimages/curl:latest"
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856687-nlzqs   Successfully pulled image "curlimages/curl:latest" in 1.932s (1.932s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856687-nlzqs   Started container curl
+9h          Normal    Created                  pod/curl-be-every-minute-29856687-nlzqs   Created container: curl
+9h          Normal    Completed                job/curl-be-every-minute-29856687         Job completed
+9h          Normal    Scheduled                pod/curl-be-every-minute-29856688-wtq7q   Successfully assigned assign1/curl-be-every-minute-29856688-wtq7q to my-cluster-control-plane
+9h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856688         Created pod: curl-be-every-minute-29856688-wtq7q
+9h          Normal    Pulling                  pod/curl-be-every-minute-29856688-wtq7q   Pulling image "curlimages/curl:latest"
+9h          Normal    Created                  pod/curl-be-every-minute-29856688-wtq7q   Created container: curl
+9h          Normal    Pulled                   pod/curl-be-every-minute-29856688-wtq7q   Successfully pulled image "curlimages/curl:latest" in 2.033s (2.034s including waiting). Image size: 10680594 bytes.
+9h          Normal    Started                  pod/curl-be-every-minute-29856688-wtq7q   Started container curl
+9h          Normal    Completed                job/curl-be-every-minute-29856688         Job completed
+8h          Normal    Scheduled                pod/curl-be-every-minute-29856689-whlvs   Successfully assigned assign1/curl-be-every-minute-29856689-whlvs to my-cluster-control-plane
+8h          Normal    Pulling                  pod/curl-be-every-minute-29856689-whlvs   Pulling image "curlimages/curl:latest"
+8h          Normal    SuccessfulCreate         job/curl-be-every-minute-29856689         Created pod: curl-be-every-minute-29856689-whlvs
+8h          Normal    Created                  pod/curl-be-every-minute-29856689-whlvs   Created container: curl
+8h          Normal    Pulled                   pod/curl-be-every-minute-29856689-whlvs   Successfully pulled image "curlimages/curl:latest" in 2.247s (2.247s including waiting). Image size: 10680594 bytes.
+8h          Normal    Started                  pod/curl-be-every-minute-29856689-whlvs   Started container curl
+8h          Normal    Completed                job/curl-be-every-minute-29856689         Job completed
+118m        Normal    SandboxChanged           pod/nginx-bd97545f8-tmh8z                 Pod sandbox changed, it will be killed and re-created.
+118m        Normal    SandboxChanged           pod/whoami-785578b7b8-sllhb               Pod sandbox changed, it will be killed and re-created.
+118m        Normal    SandboxChanged           pod/nginx-bd97545f8-jlcz8                 Pod sandbox changed, it will be killed and re-created.
+118m        Normal    SandboxChanged           pod/whoami-785578b7b8-b54c9               Pod sandbox changed, it will be killed and re-created.
+118m        Normal    SandboxChanged           pod/backend-5998bb6fbf-6ph9h              Pod sandbox changed, it will be killed and re-created.
+118m        Normal    SandboxChanged           pod/redis-57c74bbd89-q8c52                Pod sandbox changed, it will be killed and re-created.
+118m        Normal    SandboxChanged           pod/backend-5998bb6fbf-b88sd              Pod sandbox changed, it will be killed and re-created.
+115m        Normal    Pulling                  pod/whoami-785578b7b8-b54c9               Pulling image "containous/whoami"
+117m        Warning   Failed                   pod/whoami-785578b7b8-b54c9               Failed to pull image "containous/whoami": failed to pull and unpack image "docker.io/containous/whoami:latest": failed to resolve reference "docker.io/containous/whoami:latest": failed to do request: Head "https://registry-1.docker.io/v2/containous/whoami/manifests/latest": dial tcp: lookup registry-1.docker.io on 172.18.0.1:53: server misbehaving
+117m        Warning   Failed                   pod/whoami-785578b7b8-b54c9               Error: ErrImagePull
+117m        Warning   Failed                   pod/whoami-785578b7b8-sllhb               Failed to pull image "containous/whoami": failed to pull and unpack image "docker.io/containous/whoami:latest": failed to resolve reference "docker.io/containous/whoami:latest": failed to do request: Head "https://registry-1.docker.io/v2/containous/whoami/manifests/latest": dial tcp: lookup registry-1.docker.io on 172.18.0.1:53: server misbehaving
+115m        Normal    Pulling                  pod/whoami-785578b7b8-sllhb               Pulling image "containous/whoami"
+117m        Warning   Failed                   pod/whoami-785578b7b8-sllhb               Error: ErrImagePull
+115m        Normal    Pulled                   pod/nginx-bd97545f8-jlcz8                 Container image "nginx:1.27-alpine" already present on machine
+117m        Normal    Pulled                   pod/nginx-bd97545f8-tmh8z                 Container image "nginx:1.27-alpine" already present on machine
+117m        Normal    Created                  pod/nginx-bd97545f8-tmh8z                 Created container: nginx
+117m        Normal    Created                  pod/redis-57c74bbd89-q8c52                Created container: redis
+117m        Normal    Pulled                   pod/redis-57c74bbd89-q8c52                Container image "redis:7-alpine" already present on machine
+117m        Normal    Pulled                   pod/backend-5998bb6fbf-b88sd              Container image "ghcr.io/stefanprodan/podinfo:6.7.1" already present on machine
+117m        Normal    Created                  pod/backend-5998bb6fbf-b88sd              Created container: podinfo
+115m        Normal    Created                  pod/nginx-bd97545f8-jlcz8                 Created container: nginx
+117m        Warning   TooManyMissedTimes       cronjob/curl-be-every-minute              too many missed start times. Set or decrease .spec.startingDeadlineSeconds or check clock skew
+117m        Normal    SuccessfulCreate         cronjob/curl-be-every-minute              Created job curl-be-every-minute-29857111
+117m        Normal    Pulled                   pod/backend-5998bb6fbf-6ph9h              Container image "ghcr.io/stefanprodan/podinfo:6.7.1" already present on machine
+117m        Normal    Created                  pod/backend-5998bb6fbf-6ph9h              Created container: podinfo
+117m        Normal    Scheduled                pod/curl-be-every-minute-29857111-snvbk   Successfully assigned assign1/curl-be-every-minute-29857111-snvbk to my-cluster-control-plane
+117m        Normal    SuccessfulCreate         job/curl-be-every-minute-29857111         Created pod: curl-be-every-minute-29857111-snvbk
+117m        Normal    Started                  pod/nginx-bd97545f8-tmh8z                 Started container nginx
+117m        Normal    Started                  pod/redis-57c74bbd89-q8c52                Started container redis
+117m        Normal    Started                  pod/backend-5998bb6fbf-b88sd              Started container podinfo
+115m        Normal    Started                  pod/nginx-bd97545f8-jlcz8                 Started container nginx
+117m        Normal    Started                  pod/backend-5998bb6fbf-6ph9h              Started container podinfo
+117m        Warning   Unhealthy                pod/nginx-bd97545f8-jlcz8                 Readiness probe failed: Get "http://10.244.0.8:80/": dial tcp 10.244.0.8:80: connect: connection refused
+117m        Warning   Unhealthy                pod/nginx-bd97545f8-tmh8z                 Readiness probe failed: Get "http://10.244.0.9:80/": dial tcp 10.244.0.9:80: connect: connection refused
+117m        Normal    BackOff                  pod/whoami-785578b7b8-b54c9               Back-off pulling image "containous/whoami"
+117m        Warning   Failed                   pod/whoami-785578b7b8-b54c9               Error: ImagePullBackOff
+117m        Warning   FailedSync               pod/backend-5998bb6fbf-6ph9h              error determining status: rpc error: code = Unavailable desc = error reading from server: read unix @->/run/containerd/containerd.sock: read: connection reset by peer
+116m        Warning   Unhealthy                pod/redis-57c74bbd89-q8c52                Readiness probe errored and resulted in unknown state: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial unix /run/containerd/containerd.sock: connect: connection refused"
+117m        Warning   FailedSync               pod/nginx-bd97545f8-tmh8z                 error determining status: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial unix /run/containerd/containerd.sock: connect: connection refused"
+116m        Normal    BackOff                  pod/whoami-785578b7b8-sllhb               Back-off pulling image "containous/whoami"
+116m        Warning   Failed                   pod/whoami-785578b7b8-sllhb               Error: ImagePullBackOff
+117m        Warning   FailedCreatePodSandBox   pod/curl-be-every-minute-29857111-snvbk   Failed to create pod sandbox: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial unix /run/containerd/containerd.sock: connect: connection refused"
+117m        Warning   Failed                   pod/whoami-785578b7b8-b54c9               Failed to pull image "containous/whoami": rpc error: code = Unavailable desc = server is not initialized yet: unavailable
+117m        Warning   BackOff                  pod/nginx-bd97545f8-jlcz8                 Back-off restarting failed container nginx in pod nginx-bd97545f8-jlcz8_assign1(325389dc-9d3e-4739-9650-61cde45b93d5)
+117m        Warning   Failed                   pod/nginx-bd97545f8-tmh8z                 Error: error reading from server: read unix @->/run/containerd/containerd.sock: read: connection reset by peer
+116m        Warning   FailedCreatePodSandBox   pod/curl-be-every-minute-29857111-snvbk   Failed to create pod sandbox: rpc error: code = Unavailable desc = error reading from server: read unix @->/run/containerd/containerd.sock: read: connection reset by peer
+117m        Normal    Sync                     ingress/app-ingress                       Scheduled for sync
+116m        Warning   Unhealthy                pod/redis-57c74bbd89-q8c52                Readiness probe errored and resulted in unknown state: rpc error: code = Unavailable desc = server is not initialized yet: unavailable
+116m        Warning   Failed                   pod/nginx-bd97545f8-jlcz8                 Error: ImageInspectError
+117m        Warning   InspectFailed            pod/nginx-bd97545f8-jlcz8                 Failed to inspect image "": rpc error: code = Unavailable desc = server is not initialized yet: unavailable
+116m        Normal    SandboxChanged           pod/curl-be-every-minute-29857111-snvbk   Pod sandbox changed, it will be killed and re-created.
+114m        Normal    JobAlreadyActive         cronjob/curl-be-every-minute              Not starting job because prior execution is running and concurrency policy is Forbid
+116m        Warning   BackOff                  pod/whoami-785578b7b8-b54c9               Back-off restarting failed container whoami in pod whoami-785578b7b8-b54c9_assign1(b3c13ea1-04ef-4a48-9676-acbb75f07043)
+116m        Warning   InspectFailed            pod/nginx-bd97545f8-jlcz8                 Failed to inspect image "": rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial unix /run/containerd/containerd.sock: connect: connection refused"
+116m        Warning   BackOff                  pod/whoami-785578b7b8-sllhb               Back-off restarting failed container whoami in pod whoami-785578b7b8-sllhb_assign1(ffbbf0d8-c05b-4a54-9d04-7df01168a296)
+116m        Warning   Failed                   pod/nginx-bd97545f8-jlcz8                 Error: error reading from server: read unix @->/run/containerd/containerd.sock: read: connection reset by peer
+115m        Normal    Pulling                  pod/curl-be-every-minute-29857111-snvbk   Pulling image "curlimages/curl:latest"
+115m        Normal    Pulled                   pod/curl-be-every-minute-29857111-snvbk   Successfully pulled image "curlimages/curl:latest" in 8.413s (8.924s including waiting). Image size: 10680594 bytes.
+115m        Normal    Created                  pod/curl-be-every-minute-29857111-snvbk   Created container: curl
+115m        Normal    Pulled                   pod/whoami-785578b7b8-b54c9               Successfully pulled image "containous/whoami" in 5.284s (13.268s including waiting). Image size: 2936940 bytes.
+115m        Normal    Created                  pod/whoami-785578b7b8-b54c9               Created container: whoami
+115m        Normal    Pulled                   pod/whoami-785578b7b8-sllhb               Successfully pulled image "containous/whoami" in 6.216s (19.471s including waiting). Image size: 2936940 bytes.
+115m        Warning   Unhealthy                pod/redis-57c74bbd89-q8c52                Readiness probe failed: command timed out: "redis-cli ping" timed out after 1s
+115m        Normal    Created                  pod/whoami-785578b7b8-sllhb               Created container: whoami
+115m        Normal    Started                  pod/whoami-785578b7b8-b54c9               Started container whoami
+115m        Normal    Started                  pod/whoami-785578b7b8-sllhb               Started container whoami
+56s         Normal    JobAlreadyActive         cronjob/curl-be-every-minute              Not starting job because prior execution is running and concurrency policy is Forbid
+28m         Warning   NodeNotReady             pod/backend-5998bb6fbf-6ph9h              Node is not ready
+28m         Warning   NodeNotReady             pod/redis-57c74bbd89-q8c52                Node is not ready
+28m         Warning   NodeNotReady             pod/whoami-785578b7b8-sllhb               Node is not ready
+28m         Warning   NodeNotReady             pod/whoami-785578b7b8-b54c9               Node is not ready
+28m         Warning   NodeNotReady             pod/backend-5998bb6fbf-b88sd              Node is not ready
+28m         Warning   NodeNotReady             pod/nginx-bd97545f8-tmh8z                 Node is not ready
+28m         Warning   NodeNotReady             pod/nginx-bd97545f8-jlcz8                 Node is not ready
+56s         Warning   TooManyMissedTimes       cronjob/curl-be-every-minute              too many missed start times. Set or decrease .spec.startingDeadlineSeconds or check clock skew

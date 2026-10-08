@@ -1,68 +1,25 @@
-apiVersion: v1          # Kubernetes ka core API group version
-kind: ConfigMap         # Ye ek ConfigMap object hai — sirf data store karta hai, kuch execute nahi karta
-metadata:
-  name: nginx-config    # Is ConfigMap ka naam — Deployment is naam se isko mount karega
-  namespace: assign1    # Same namespace jahan baaki resources hain
-
-# ─────────────────────────────────────────────────────────────
-# data: ke andar hum key-value pairs store karte hain
-# key   = "nginx.conf"       ← yahi file name hogi jab container mein mount hogi
-# value = nginx configuration ← actual routing rules
-# ─────────────────────────────────────────────────────────────
-data:
-  nginx.conf: |
-    # ── SERVER BLOCK ──────────────────────────────────────────
-    # Ek server block = ek virtual server
-    # Nginx yahan sunata hai incoming HTTP requests ko
-    server {
-
+  kind: ConfigMap
+  metadata:
+    name: nginx-config       # ← YEH NAAM yaad rakhein!
+    namespace: assign1
+  data:
+    nginx.conf: |            # ← KEY ka naam "nginx.conf" hai
+      server {
         listen 80;
-        # ↑ Nginx port 80 par listen karega (standard HTTP port)
-        # Jab koi browser ya client request bhejta hai, yahan aati hai
+        location /api/ { proxy_pass http://backend:9898/; }
+        location /whoami/ { proxy_pass http://whoami:80/; }
+        location / { root /usr/share/nginx/html; }
+      }
+# Formula sirf 2 cheezein hain:
+  
+#   http://<Service ka name>:<Service ka port>/
+  
+#   Bas itna! Aur dono cheezein tumhari Service YAML file mein hoti hain.
 
-        server_name _;
-        # ↑ "_" matlab: koi bhi domain name ya IP accept karo
-        # Example: localhost, 192.168.1.1, myapp.com — sab match karega
-
-        # ── LOCATION BLOCK 1: /api/ ───────────────────────────
-        # Agar request ka path /api/ se shuru ho...
-        location /api/ {
-
-            proxy_pass http://backend:9898/;
-            # ↑ Request ko forward karo "backend" service ke port 9898 par
-            # "backend" = Kubernetes Service ka naam (backend_service.yaml mein define hai)
-            # Kubernetes DNS automatically "backend" ko us service ki ClusterIP mein resolve karta hai
-            # Example: GET /api/version → http://backend:9898/version
-
-            proxy_set_header Host $host;
-            # ↑ Original request ka "Host" header preserve karo
-            # Taki backend service ko pata chale request kahan se aayi thi
-        }
-
-        # ── LOCATION BLOCK 2: /whoami/ ────────────────────────
-        # Agar request ka path /whoami/ se shuru ho...
-        location /whoami/ {
-
-            proxy_pass http://whoami:80/;
-            # ↑ Request ko forward karo "whoami" service ke port 80 par
-            # "whoami" = Kubernetes Service ka naam (whoami_service.yaml mein define hai)
-            # Example: GET /whoami/ → http://whoami:80/
-
-            proxy_set_header Host $host;
-            # ↑ Same as upar — original Host header forward karo
-        }
-
-        # ── LOCATION BLOCK 3: / (catch-all) ──────────────────
-        # Agar koi aur path match nahi hua to yahan aao
-        # Ye SABSE LAST mein check hota hai (least specific)
-        location / {
-
-            root /usr/share/nginx/html;
-            # ↑ Static files yahan se serve karo
-            # Nginx container ke andar ye default HTML folder hota hai
-
-            index index.html;
-            # ↑ Agar sirf "/" maanga toh index.html serve karo
-            # Example: GET / → serve /usr/share/nginx/html/index.html
-        }
-    }
+ 
+  # backend_service.yaml
+  # metadata:
+  #   name: backend        ← YE NAAM liya  →  http://backend:????/
+  # spec:
+  #   ports:
+  #   - port: 9898         ← YE PORT liya  →  http://backend:9898/

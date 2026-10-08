@@ -76,6 +76,7 @@ spec:
         # ── Readiness probe: redis-cli PING ──────────────────────────────────
         # Sends PING to Redis. Returns PONG if healthy.
         # Fail → pod removed from Service endpoints (no traffic sent).
+        # Pod zinda rehta hai, lekin usse traffic bhejna band kar diya jata hai.
         readinessProbe:
           exec:
             command:
@@ -88,4 +89,5 @@ spec:
       # ── Volumes ─────────────────────────────────────────────────────────────
       volumes:
       - name: redis-data
-        emptyDir: {}   # replace with PVC (redis-pvc.yaml) for data persistence
+        persistentVolumeClaim:
+          claimName: redis-pvc
