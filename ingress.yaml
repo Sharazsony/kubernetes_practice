@@ -4,38 +4,31 @@ metadata:
   name: app-ingress
   namespace: assign1
   annotations:
-    # $2 → sirf path ka baaki hissa forward karo
-    # /api/version → /version forward hoga backend ko
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
-  - host: app.local
-    http:
-      paths:
-      # ─── /api/ → backend (podinfo) DIRECT port 9898 ───
-      - path: /api(/|$)(.*)
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: backend       # podinfo service
-            port:
-              number: 9898      # ← podinfo port 9898 par chalta hai
-
-      # ─── /whoami/ → whoami DIRECT port 80 ───
-      - path: /whoami(/|$)(.*)
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: whoami
-            port:
-              number: 80
-
-      # ─── / → nginx (static page) ───
-      - path: /()(.*)
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: nginx
-            port:
-              number: 80
+    - host: app.local
+      http:
+        paths:
+          - path: /api(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 9898
+          - path: /whoami(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: whoami
+                port:
+                  number: 80
+          - path: /()(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx
+                port:
+                  number: 80

@@ -1,25 +1,3 @@
-# =============================================================================
-# DEPLOYMENT — redis
-# =============================================================================
-# Single-replica Redis cache used by the podinfo backend.
-# podinfo connects via env var: PODINFO_CACHE_SERVER=tcp://redis:6379
-#
-# Storage:
-#   - Default uses emptyDir (data lost on pod restart) — Task 9 baseline.
-#   - To persist data, replace emptyDir with the PVC defined in redis-pvc.yaml:
-#       volumes:
-#       - name: redis-data
-#           persistentVolumeClaim:
-#             claimName: redis-pvc
-#
-# Probes:
-#   livenessProbe  → TCP socket check on port 6379 (is Redis process alive?)
-#   readinessProbe → redis-cli PING command (is Redis accepting connections?)
-#
-# Apply:  kubectl apply -f manifests/base/redis-deployment.yaml
-# Verify: kubectl get pods -l app=redis -n assign1
-# =============================================================================
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -29,7 +7,7 @@ metadata:
     app: redis
     project: kubernetes-assignment-1
 spec:
-  replicas: 1   # single instance — Redis does not support multi-replica without clustering
+  replicas: 1
   selector:
     matchLabels:
       app: redis
@@ -39,55 +17,36 @@ spec:
         app: redis
     spec:
       containers:
-      - name: redis
-        image: redis:7-alpine   # lightweight Alpine-based Redis 7
-        ports:
-        - containerPort: 6379
-          name: redis
-
-        # ── Volume mount: Redis data directory ──────────────────────────────
-        # Redis persists data to /data by default.
-        # emptyDir = ephemeral (wiped on pod restart) — intentional for Task 9.
-        volumeMounts:
-        - name: redis-data
-          mountPath: /data
-
-        # ── Resource management ──────────────────────────────────────────────
-        # Requests: guaranteed allocation on the node.
-        # Limits:   hard ceiling — OOMKilled if exceeded.
-        resources:
-          requests:
-            memory: "64Mi"   # Redis runtime ~20-30 MB + Alpine OS overhead
-            cpu: "100m"      # 0.1 vCPU — sufficient for light cache workloads
-          limits:
-            memory: "128Mi"
-            cpu: "200m"
-
-        # ── Liveness probe: TCP socket ───────────────────────────────────────
-        # Checks if the Redis port is open. Does NOT verify Redis is responsive.
-        # Fail → Kubernetes restarts the container.
-        livenessProbe:
-          tcpSocket:
-            port: 6379
-          initialDelaySeconds: 10   # wait 10s after container starts
-          periodSeconds: 10         # check every 10s
-          failureThreshold: 3
-
-        # ── Readiness probe: redis-cli PING ──────────────────────────────────
-        # Sends PING to Redis. Returns PONG if healthy.
-        # Fail → pod removed from Service endpoints (no traffic sent).
-        # Pod zinda rehta hai, lekin usse traffic bhejna band kar diya jata hai.
-        readinessProbe:
-          exec:
-            command:
-            - redis-cli
-            - ping
-          initialDelaySeconds: 5
-          periodSeconds: 5
-          failureThreshold: 3
-
-      # ── Volumes ─────────────────────────────────────────────────────────────
+        - name: redis
+          image: redis:7-alpine
+          ports:
+            - containerPort: 6379
+              name: redis
+          volumeMounts:
+            - name: redis-data
+              mountPath: /data
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+          livenessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
       volumes:
-      - name: redis-data
-        persistentVolumeClaim:
-          claimName: redis-pvc
+        - name: redis-data
+          persistentVolumeClaim:
+            claimName: redis-pvc

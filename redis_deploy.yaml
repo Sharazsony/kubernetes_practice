@@ -1,14 +1,14 @@
-apiVersion: apps/v1 # i want app group ka v1 version deployment resource chahiye
-kind : Deployment
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: redis
-  namespace: assign1 
+  namespace: assign1
   labels:
     app: redis
 spec:
   replicas: 1
   selector:
-    matchLabels: 
+    matchLabels:
       app: redis
   template:
     metadata:
@@ -16,43 +16,36 @@ spec:
         app: redis
     spec:
       containers:
-      - name: redis
-        image: redis:7-alpine
-        ports:
-        - containerPort: 6379
-          name: redis-port
-        volumeMounts:
-        - name: redis-data
-          mountPath: /data
-        resources:
-          requests:
-            memory: "64Mi" # redis run time+ alpine OS + overhead =~ 20 - 30 MB | safe buffer -> 2 x
-            cpu: "100m"  # 0.1 -> 1 core of cpu 
-          limits:
+        - name: redis
+          image: redis:7-alpine
+          ports:
+            - containerPort: 6379
+              name: redis-port
+          volumeMounts:
+            - name: redis-data
+              mountPath: /data
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
               memory: "128Mi"
               cpu: "200m"
-        livenessProbe: # Ye check karo ke container ZINDA hai ya nahi
-          tcpSocket:
-            port: 6379
-          initialDelaySeconds: 10 # container start hone ke baad 10 sec wait karega fir probe check karega 
-          periodSeconds: 10 # Har 10 seconds baad check karte raho
-        readinessProbe: # kya container trafic lene ke liye ready hai ya nahi
-        # method to check it 
-          exec:
+          livenessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            exec:
               command:
-              - redis-cli
-              - ping 
-          initialDelaySeconds: 5 
-          periodSeconds: 5
-      # volumes:
-      # - name: redis-data
-      #   emptyDir: {}
+                - redis-cli
+                - ping
+            initialDelaySeconds: 5
+            periodSeconds: 5
       volumes:
-      - name: redis-data
-        persistentVolumeClaim:
-          claimName: redis-pvc
-
-
-
+        - name: redis-data
+          persistentVolumeClaim:
+            claimName: redis-pvc
 
 
